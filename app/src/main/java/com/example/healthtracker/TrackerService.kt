@@ -1,6 +1,5 @@
 package com.example.healthtracker
 
-
 import android.app.Notification
 import android.app.PendingIntent
 import android.app.Service
@@ -11,8 +10,6 @@ import android.hardware.SensorEventListener
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
 
-
-
 class TrackerService:Service(), SensorEventListener{
     var count:String = "0"
     override fun onBind(intent: Intent?): IBinder? {
@@ -20,6 +17,9 @@ class TrackerService:Service(), SensorEventListener{
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        var screenTime = ScreenTime()
+        screenTime.startScreenTimer(this)
+
         val userName = intent?.getStringExtra("Username")
         count = intent?.getStringExtra("count").toString()
         val notificationIntent = Intent(this, HealthTracker::class.java)
