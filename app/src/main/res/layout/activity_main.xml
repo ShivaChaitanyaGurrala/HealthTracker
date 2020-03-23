@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editText"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="116dp" android:hint="Enter User Name"/>
+    <Button
+            android:text="StartService"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/buttonStartService"
+            app:layout_constraintTop_toBottomOf="@+id/editText"
+            android:layout_marginTop="108dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    <Button
+            android:text="StopService"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/buttonStopService"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonStartService" android:layout_marginTop="72dp"
+            app:layout_constraintHorizontal_bias="0.498"/>
+    <Button
+            android:text="Tracker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/buttonTracker"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonStopService" android:layout_marginTop="96dp"
+            app:layout_constraintHorizontal_bias="0.498" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

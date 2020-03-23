@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HealthTracker</string>
+    <string name="CHANNEL_ID">Health Tracker</string>
+    <string name="CHANNEL_NEWS">Tracker Updates</string>
+</resources>
