@@ -8,7 +8,7 @@ import android.hardware.SensorManager
 import android.util.Log
 import kotlin.math.abs
 
-class Idelness: SensorEventListener {
+class Idleness: SensorEventListener {
     private var sensorManager: SensorManager? = null
     private var accelerometerSensor: Sensor? = null
     private var threshold = 7.0f

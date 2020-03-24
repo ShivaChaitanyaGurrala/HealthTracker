@@ -17,8 +17,9 @@ class TrackerService:Service(), SensorEventListener{
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        var idelness = Idelness()
-        idelness.checkIdealTime(this)
+        var idleness = Idleness()
+        idleness.checkIdealTime(this)
+
         var screenTime = ScreenTime()
         screenTime.startScreenTimer(this)
 
