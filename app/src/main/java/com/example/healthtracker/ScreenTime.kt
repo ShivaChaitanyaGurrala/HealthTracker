@@ -1,5 +1,6 @@
 package com.example.healthtracker
 
+import android.app.Notification
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -9,6 +10,8 @@ import android.os.Build
 import android.os.PowerManager
 import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 
 
 class ScreenTime: SensorEventListener {
@@ -17,10 +20,13 @@ class ScreenTime: SensorEventListener {
     private var powermanager:PowerManager? = null
     private var timer = 0L
     private val SCREEN_THRESHOLD = 0.5*60*1000L
-    private val LIGHT_PERCENTAGE = 50
+    private val LIGHT_PERCENTAGE = 20
     private var AMBIENT_LIGHT_AROUND = 0F
+    private var contextOfService : Context? = null
+
     fun startScreenTimer(context: Context) {
         // initialize the sensor manager
+        contextOfService = context
         sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager?
         lightSensor = sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT)
         sensorManager!!.registerListener(this, sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT), SensorManager.SENSOR_DELAY_NORMAL)
@@ -45,9 +51,10 @@ class ScreenTime: SensorEventListener {
                         timer = System.currentTimeMillis()
                     }
                     if(System.currentTimeMillis() - timer >= SCREEN_THRESHOLD) {
-                        val msg = "You have been looking at the screen for more than " + SCREEN_THRESHOLD/60000 + "minutes!"
+                        val msg = "You have been looking at the screen for more than " + SCREEN_THRESHOLD/60000 + " minutes."
                         Log.i("NOTIFICATION", msg)
                         timer = 0L
+                        generateNotification(msg)
                     }
                 }
             }
@@ -62,5 +69,19 @@ class ScreenTime: SensorEventListener {
         val lightPercentage = (presentLight/ambientLightAround)*100
         Log.i("LIGHT PERCENTAGE", lightPercentage.toString())
         return lightPercentage < LIGHT_PERCENTAGE
+    }
+
+    private fun generateNotification(msg : String) {
+        // generate a notification
+        val notification: Notification = NotificationCompat.Builder(contextOfService!!.applicationContext, "Health Tracker")
+            .setSmallIcon(R.drawable.healthicon)
+            .setContentTitle("Health Tracker Service")
+            .setContentText(msg)
+            .build()
+        notification.flags = 16 or notification.flags
+        with(NotificationManagerCompat.from(contextOfService!!.applicationContext)) {
+            // notificationId is a unique int for each notification that you must define
+            notify(2, notification)
+        }
     }
 }
