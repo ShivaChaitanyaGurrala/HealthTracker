@@ -2,4 +2,26 @@
     <string name="app_name">HealthTracker</string>
     <string name="CHANNEL_ID">Health Tracker</string>
     <string name="CHANNEL_NEWS">Tracker Updates</string>
+
+    <string name="EYE_TASK_1_TITLE">Palming</string>
+    <string name="EYE_TASK_1">Rub your hands together for 10 to 15 seconds until they feel warm and energized. Then gently place your hands over your eyes, with the fingertips resting on the forehead. Don’t touch the eyeballs directly. Close your eyes, breathe deeply, and relax. Invite the eyes to grow soft and spacious, and enjoy this break from visual stimulation. Continue this palming action as long as it feels soothing. When you are ready to emerge, gently remove the hands from the face and slowly open the eyes.</string>
+    <string name="EYE_TASK_2_TITLE">Eye Rolling</string>
+    <string name="EYE_TASK_2">Sit upright with a long spine and relaxed breath. Without moving your head, direct your gaze up toward the ceiling. Then slowly circle your eyes in a clockwise direction, tracing as large a circle as possible. Gently focus on the objects in your periphery as you do this, and invite the movement to feel smooth and fluid. Repeat three times, then close the eyes and relax. When you’re ready, perform the same eye-rolling movement three times in a counterclockwise direction.</string>
+    <string name="EYE_TASK_3_TITLE">Distance Gazing</string>
+    <string name="EYE_TASK_3">Rest your gaze on a distant object. Focus on the object as clearly as possible, while staying relaxed in the eyes and face. Take a deep breath, and then slowly shift your gaze to another distant object around you. Imagine your eyes are gently “drinking in” the image you see. Continue letting your eyes drift about the world around you, momentarily pausing at objects at varying distances away from you.</string>
+
+    <string name="EXERCISE_HEADING">Tap on the exercise to see the details</string>
+    <string name="CONGRATS_MSG">Congratulations! You have completed all the tasks.</string>
+
+    <string name="ACTIVE_TASK_1_TITLE">Breath Awareness</string>
+    <string name="ACTIVE_TASK_1">To begin, sit at the front edge of your chair so that your ears, shoulders, and hips are in a straight line. Adjust the height of your chair so that your knees are even with the hip joints and your feet rest on the floor directly under your knees (if your chair is not adjustable, prop books under your feet or hips). Close your eyes and focus on establishing smooth, even diaphragmatic breathing; feel the upper abdomen and lower ribs expand with each inhale and fall with each exhale. After one minute, move on to the gentle stretches below, starting each exercise from this basic seated posture.</string>
+    <string name="ACTIVE_TASK_2_TITLE">Shoulder Rolls</string>
+    <string name="ACTIVE_TASK_2">On an inhale, draw the shoulders up toward your ears and back; then down and forward on the exhale. Repeat two more times, then reverse the direction. This exercise increases mobility in the shoulder joints and opens the chest.</string>
+    <string name="ACTIVE_TASK_3_TITLE">Seated Twist</string>
+    <string name="ACTIVE_TASK_3">On an exhale, begin to twist to your right. Place both hands on the right arm-rest for support; if you’re sitting in an armless chair, rest your right hand on the seat just behind your pelvis and your left hand on your right thigh. Allow the breath to guide you deeper into the pose by lengthening the spine with each inhale, and squeezing the belly in while deepening the twist with each exhale. Hold for 30 to 60 seconds, then switch sides.</string>
+    <string name="ACTIVE_TASK_4_TITLE">Leg Cradle</string>
+    <string name="ACTIVE_TASK_4">Place your outer left ankle on your right thigh. With your right hand resting on your left ankle and your left hand on your left knee, exhale and bend forward from the hip joints. Keep the spine straight as you fold forward. Fold only as far as you’re comfortable, gently stretching the deep muscles surrounding the left hip joint. Hold for 30 to 60 seconds, then change sides.</string>
+    <string name="ACTIVE_TASK_5_TITLE">Wide-Legged Forward Bend</string>
+    <string name="ACTIVE_TASK_5">Separate your knees and feet slightly wider than hip distance and place your hands on your thighs. Exhale and fold forward from the hips, keeping the spine straight. Hold for a few breaths, then slide your hands down your legs, allowing the spine to round (be careful if your chair is on wheels!). Breathe into the hip joints and enjoy the length and spaciousness along the spine. For a deeper stretch, release your hands to the floor between your feet. Hold for 30 to 60 seconds, then slowly come back up, using your leg and abdominal muscles for support.</string>
+
 </resources>
