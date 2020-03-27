@@ -94,4 +94,7 @@ class ScreenTimeDetection: SensorEventListener {
             notify(2, notification)
         }
     }
+    fun onDestroy(context: Context){
+        sensorManager!!.unregisterListener(this)
+    }
 }

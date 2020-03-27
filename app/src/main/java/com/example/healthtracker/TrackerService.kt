@@ -10,19 +10,20 @@ import android.os.IBinder
 import androidx.core.app.NotificationCompat
 
 class TrackerService:Service(), SensorEventListener{
+    private lateinit var idleness:IdlenessDetection
+    private lateinit var screenTime:ScreenTimeDetection
     override fun onBind(intent: Intent?): IBinder? {
         return null
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        var idleness = IdlenessDetection()
+        idleness = IdlenessDetection()
         idleness.checkIdealTime(this)
 
-        var screenTime = ScreenTimeDetection()
+        screenTime = ScreenTimeDetection()
         screenTime.startScreenTimer(this)
 
-        val userName = intent?.getStringExtra("Username")
-        val text = "This is a personalized health Tracker application for $userName"
+        val text = "This is a personalized health Tracker application"
         val notification: Notification = NotificationCompat.Builder(this, getString(R.string.CHANNEL_ID))
             .setSmallIcon(R.drawable.healthicon)
             .setContentTitle("Health Tracker Service")
@@ -38,5 +39,11 @@ class TrackerService:Service(), SensorEventListener{
 
     override fun onSensorChanged(event: SensorEvent?) {
         //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onDestroy() {
+        idleness.onDestroy(this)
+        screenTime.onDestroy(this)
+        super.onDestroy()
     }
 }
