@@ -1,7 +1,9 @@
 package com.example.healthtracker
 
 import android.app.Notification
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -14,7 +16,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 
 
-class ScreenTime: SensorEventListener {
+class ScreenTimeDetection: SensorEventListener {
     private var sensorManager: SensorManager? = null
     private var lightSensor: Sensor? = null
     private var powermanager:PowerManager? = null
@@ -51,7 +53,7 @@ class ScreenTime: SensorEventListener {
                         timer = System.currentTimeMillis()
                     }
                     if(System.currentTimeMillis() - timer >= SCREEN_THRESHOLD) {
-                        val msg = "You have been looking at the screen for more than " + SCREEN_THRESHOLD/60000 + " minutes."
+                        val msg = "Looking at the screen for more than " + SCREEN_THRESHOLD/60000 + " minutes?"
                         Log.i("NOTIFICATION", msg)
                         timer = 0L
                         generateNotification(msg)
@@ -73,10 +75,18 @@ class ScreenTime: SensorEventListener {
 
     private fun generateNotification(msg : String) {
         // generate a notification
-        val notification: Notification = NotificationCompat.Builder(contextOfService!!.applicationContext, "Health Tracker")
+        val notificationIntent = Intent(contextOfService, EyeCare::class.java)
+        val pendingIntent = PendingIntent.getActivity(
+            contextOfService,
+            0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT
+        )
+        val notification: Notification = NotificationCompat.Builder(contextOfService!!.applicationContext,
+            "Health Tracker"
+        )
             .setSmallIcon(R.drawable.healthicon)
             .setContentTitle("Health Tracker Service")
             .setContentText(msg)
+            .setContentIntent(pendingIntent)
             .build()
         notification.flags = 16 or notification.flags
         with(NotificationManagerCompat.from(contextOfService!!.applicationContext)) {
