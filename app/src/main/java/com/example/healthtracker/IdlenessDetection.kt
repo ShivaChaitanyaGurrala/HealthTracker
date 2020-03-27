@@ -83,4 +83,12 @@ class IdlenessDetection: SensorEventListener {
             notify(3, notification)
         }
     }
+    fun onDestroy(context: Context){
+        sensorManager!!.unregisterListener(this)
+    }
 }
+
+
+
+
+
