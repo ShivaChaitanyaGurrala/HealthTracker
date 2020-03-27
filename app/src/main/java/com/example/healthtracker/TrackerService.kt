@@ -17,8 +17,9 @@ class TrackerService:Service(), SensorEventListener{
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        var idelness = Idelness()
-        idelness.checkIdealTime(this)
+        var idleness = Idleness()
+        idleness.checkIdealTime(this)
+
         var screenTime = ScreenTime()
         screenTime.startScreenTimer(this)
 
@@ -49,4 +50,15 @@ class TrackerService:Service(), SensorEventListener{
         //To change body of created functions use File | Settings | File Templates.
     }
 
+    fun generateNotification() {
+        // Create an explicit intent for an Activity in your app
+        val text = "Sample Notification"
+        val notification: Notification = NotificationCompat.Builder(this, getString(R.string.CHANNEL_ID))
+            .setSmallIcon(R.drawable.healthicon)
+            .setContentTitle("Health Tracker Service")
+            .setContentText(text)
+            .build()
+        notification.flags = 16 or notification.flags
+        startForeground(2, notification)
+    }
 }
