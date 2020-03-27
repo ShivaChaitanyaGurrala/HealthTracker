@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Tracking service deactivated!", Toast.LENGTH_SHORT).show()
             val serviceIntent = Intent(this,TrackerService::class.java)
             stopService(serviceIntent)
+
         }
     }
 
