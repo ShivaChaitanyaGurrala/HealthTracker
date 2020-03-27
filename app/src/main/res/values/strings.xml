@@ -2,4 +2,12 @@
     <string name="app_name">HealthTracker</string>
     <string name="CHANNEL_ID">Health Tracker</string>
     <string name="CHANNEL_NEWS">Tracker Updates</string>
+    <string name="EYE_TASK_1">Rub your hands together for 10 to 15 seconds until they feel warm and energized. Then gently place your hands over your eyes, with the fingertips resting on the forehead. Don’t touch the eyeballs directly. Close your eyes, breathe deeply, and relax. Invite the eyes to grow soft and spacious, and enjoy this break from visual stimulation. Continue this palming action as long as it feels soothing. When you are ready to emerge, gently remove the hands from the face and slowly open the eyes.</string>
+    <string name="EYE_TASK_2">Sit upright with a long spine and relaxed breath. Without moving your head, direct your gaze up toward the ceiling. Then slowly circle your eyes in a clockwise direction, tracing as large a circle as possible. Gently focus on the objects in your periphery as you do this, and invite the movement to feel smooth and fluid. Repeat three times, then close the eyes and relax. When you’re ready, perform the same eye-rolling movement three times in a counterclockwise direction.</string>
+    <string name="EYE_TASK_3">Rest your gaze on a distant object. Focus on the object as clearly as possible, while staying relaxed in the eyes and face. Take a deep breath, and then slowly shift your gaze to another distant object around you. Imagine your eyes are gently “drinking in” the image you see. Continue letting your eyes drift about the world around you, momentarily pausing at objects at varying distances away from you.</string>
+    <string name="EYE_TASK_1_TITLE">Palming</string>\
+    <string name="EYE_TASK_2_TITLE">Eye Rolling</string>
+    <string name="EYE_TASK_3_TITLE">Distance Gazing</string>
+    <string name="EXERCISE_HEADING">Tap on the exercise to see the details</string>
+    <string name="PROGRESS_HEADING">Completed 0 of 3 tasks</string>
 </resources>
