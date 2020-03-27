@@ -15,10 +15,10 @@ class TrackerService:Service(), SensorEventListener{
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        var idleness = Idleness()
+        var idleness = IdlenessDetection()
         idleness.checkIdealTime(this)
 
-        var screenTime = ScreenTime()
+        var screenTime = ScreenTimeDetection()
         screenTime.startScreenTimer(this)
 
         val userName = intent?.getStringExtra("Username")

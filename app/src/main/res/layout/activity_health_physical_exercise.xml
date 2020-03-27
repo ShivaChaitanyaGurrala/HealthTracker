@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:padding="5dp"
-            android:layout_weight="0.2"
+            android:layout_weight="0.5"
             android:visibility="visible" />
 
     <TextView
@@ -39,7 +39,7 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_weight="1"
             android:layout_margin="5dp"
             android:orientation="horizontal">
 
@@ -49,7 +49,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:paddingLeft="15dp"
-                android:text="@string/EYE_TASK_1_TITLE"
+                android:text="@string/ACTIVE_TASK_1_TITLE"
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
@@ -65,7 +65,7 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_weight="1"
             android:layout_margin="5dp"
             android:orientation="horizontal">
 
@@ -75,7 +75,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:paddingLeft="15dp"
-                android:text="@string/EYE_TASK_2_TITLE"
+                android:text="@string/ACTIVE_TASK_2_TITLE"
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
@@ -91,7 +91,7 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_weight="1"
             android:layout_margin="5dp"
             android:orientation="horizontal">
 
@@ -101,12 +101,62 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:paddingLeft="15dp"
-                android:text="@string/EYE_TASK_3_TITLE"
+                android:text="@string/ACTIVE_TASK_3_TITLE"
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
         <CheckBox
                 android:id="@+id/chkBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="top" />
+
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+        <TextView
+                android:id="@+id/txtViewTask4"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:paddingLeft="15dp"
+                android:text="@string/ACTIVE_TASK_4_TITLE"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+        <CheckBox
+                android:id="@+id/chkBox4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="top" />
+
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+        <TextView
+                android:id="@+id/txtViewTask5"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:paddingLeft="15dp"
+                android:text="@string/ACTIVE_TASK_5_TITLE"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+        <CheckBox
+                android:id="@+id/chkBox5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"

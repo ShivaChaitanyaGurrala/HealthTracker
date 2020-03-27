@@ -1,7 +1,9 @@
 package com.example.healthtracker
 
 import android.app.Notification
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -11,7 +13,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import kotlin.math.abs
 
-class Idleness: SensorEventListener {
+class IdlenessDetection: SensorEventListener {
     private var sensorManager: SensorManager? = null
     private var accelerometerSensor: Sensor? = null
     private var threshold = 7.0f
@@ -46,7 +48,7 @@ class Idleness: SensorEventListener {
                         timer = System.currentTimeMillis()
                 }
                 if(System.currentTimeMillis() - timer >= idle) {
-                    val msg = "You are Idle for more than " + idle/60000 + "minutes."
+                    val msg = "Idle for more than " + idle/60000 + " minutes?"
                     Log.i("NOTIFICATION", msg)
                     timer = 0L
                     generateNotification(msg)
@@ -64,10 +66,16 @@ class Idleness: SensorEventListener {
 
     private fun generateNotification(msg : String) {
         // generate a notification
+        val notificationIntent = Intent(contextOfService, PhysicalCare::class.java)
+        val pendingIntent = PendingIntent.getActivity(
+            contextOfService,
+            0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT
+        )
         val notification: Notification = NotificationCompat.Builder(contextOfService!!.applicationContext, "Health Tracker")
             .setSmallIcon(R.drawable.healthicon)
             .setContentTitle("Health Tracker Service")
             .setContentText(msg)
+            .setContentIntent(pendingIntent)
             .build()
         notification.flags = 16 or notification.flags
         with(NotificationManagerCompat.from(contextOfService!!.applicationContext)) {

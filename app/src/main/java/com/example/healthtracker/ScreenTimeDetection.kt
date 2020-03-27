@@ -16,7 +16,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 
 
-class ScreenTime: SensorEventListener {
+class ScreenTimeDetection: SensorEventListener {
     private var sensorManager: SensorManager? = null
     private var lightSensor: Sensor? = null
     private var powermanager:PowerManager? = null
@@ -53,7 +53,7 @@ class ScreenTime: SensorEventListener {
                         timer = System.currentTimeMillis()
                     }
                     if(System.currentTimeMillis() - timer >= SCREEN_THRESHOLD) {
-                        val msg = "You have been looking at the screen for more than " + SCREEN_THRESHOLD/60000 + " minutes."
+                        val msg = "Looking at the screen for more than " + SCREEN_THRESHOLD/60000 + " minutes?"
                         Log.i("NOTIFICATION", msg)
                         timer = 0L
                         generateNotification(msg)
