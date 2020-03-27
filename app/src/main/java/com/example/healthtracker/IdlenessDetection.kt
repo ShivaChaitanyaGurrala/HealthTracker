@@ -16,8 +16,8 @@ import kotlin.math.abs
 class IdlenessDetection: SensorEventListener {
     private var sensorManager: SensorManager? = null
     private var accelerometerSensor: Sensor? = null
-    private var threshold = 7.0f
-    private var idle = 0.5*60*1000L
+    private var threshold = 8.0f
+    private var idle = 10 *60*1000L
     private var timer = 0L
     var lastX = 0F
     var lastY = 0F

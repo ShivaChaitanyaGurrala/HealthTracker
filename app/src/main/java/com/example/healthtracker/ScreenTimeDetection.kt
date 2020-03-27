@@ -21,8 +21,8 @@ class ScreenTimeDetection: SensorEventListener {
     private var lightSensor: Sensor? = null
     private var powermanager:PowerManager? = null
     private var timer = 0L
-    private val SCREEN_THRESHOLD = 0.5*60*1000L
-    private val LIGHT_PERCENTAGE = 20
+    private val SCREEN_THRESHOLD = 5*60*1000L
+    private val LIGHT_PERCENTAGE = 35
     private var AMBIENT_LIGHT_AROUND = 0F
     private var contextOfService : Context? = null
 
