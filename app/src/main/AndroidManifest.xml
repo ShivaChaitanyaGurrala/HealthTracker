@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".EyeCare"/>
         <activity android:name=".PhysicalCare"/>
-        <service android:name=".TrackerService"/>
+        <service android:name=".ScreenTimeService"/>
+        <service android:name=".IdlenessService"/>
     </application>
 
 </manifest>

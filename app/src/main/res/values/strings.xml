@@ -24,4 +24,9 @@
     <string name="ACTIVE_TASK_5_TITLE">Wide-Legged Forward Bend</string>
     <string name="ACTIVE_TASK_5">Separate your knees and feet slightly wider than hip distance and place your hands on your thighs. Exhale and fold forward from the hips, keeping the spine straight. Hold for a few breaths, then slide your hands down your legs, allowing the spine to round (be careful if your chair is on wheels!). Breathe into the hip joints and enjoy the length and spaciousness along the spine. For a deeper stretch, release your hands to the floor between your feet. Hold for 30 to 60 seconds, then slowly come back up, using your leg and abdominal muscles for support.</string>
 
+    <string name="START_IDLE_BUTTON">Track Idleness</string>
+    <string name="START_SCREEN_BUTTON">Track Screen Time</string>
+    <string name="STOP_IDLE_BUTTON">Stop Tracking Idleness</string>
+    <string name="STOP_SCREEN_BUTTON">Stop Tracking Screen Time</string>
+
 </resources>
