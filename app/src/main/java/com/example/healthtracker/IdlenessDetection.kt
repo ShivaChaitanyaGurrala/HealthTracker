@@ -8,7 +8,6 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import kotlin.math.abs
@@ -16,8 +15,8 @@ import kotlin.math.abs
 class IdlenessDetection: SensorEventListener {
     private var sensorManager: SensorManager? = null
     private var accelerometerSensor: Sensor? = null
-    private var threshold = 7.0f
-    private var idle = 0.5*60*1000L
+    private var threshold = 8.0f
+    private var idle = 10*60*1000L
     private var timer = 0L
     var lastX = 0F
     var lastY = 0F
@@ -38,7 +37,6 @@ class IdlenessDetection: SensorEventListener {
     override fun onSensorChanged(event: SensorEvent?) {
         if(event!!.sensor.type == Sensor.TYPE_ACCELEROMETER){
             force = abs(event.values[0]+event.values[1]+event.values[2] -lastX-lastY-lastZ)
-            Log.i("force", force.toString())
             if(force>FORCE){
                 FORCE = force
                 timer = 0L
@@ -49,7 +47,6 @@ class IdlenessDetection: SensorEventListener {
                 }
                 if(System.currentTimeMillis() - timer >= idle) {
                     val msg = "Idle for more than " + idle/60000 + " minutes?"
-                    Log.i("NOTIFICATION", msg)
                     timer = 0L
                     generateNotification(msg)
                 }

@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -31,7 +30,6 @@ class MainActivity : AppCompatActivity() {
             var sharedPreferences = getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE)
             if(sharedPreferences.contains("ACTIVITY_IDLENESS")) {
                 idlenessStatus = sharedPreferences.getBoolean("ACTIVITY_IDLENESS", false)
-                Log.i("ACTIVITY_IDLENESS", idlenessStatus.toString())
             }
             val editor = sharedPreferences.edit()
             idlenessStatus = !idlenessStatus
@@ -63,7 +61,6 @@ class MainActivity : AppCompatActivity() {
             var sharedPreferences = getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE)
             if(sharedPreferences.contains("ACTIVITY_SCREEN_TIME")) {
                 screenTimeStatus = sharedPreferences.getBoolean("ACTIVITY_SCREEN_TIME", false)
-                Log.i("ACTIVITY_SCREEN_TIME", screenTimeStatus.toString())
             }
             val editor = sharedPreferences.edit()
             screenTimeStatus = !screenTimeStatus
