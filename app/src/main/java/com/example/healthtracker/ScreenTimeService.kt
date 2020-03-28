@@ -2,23 +2,21 @@ package com.example.healthtracker
 
 import android.app.Notification
 import android.app.Service
+import android.content.Context
 import android.content.Intent
-import android.hardware.Sensor
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
 import android.os.IBinder
+import android.util.Log
 import androidx.core.app.NotificationCompat
 
-class TrackerService:Service(), SensorEventListener{
-    private lateinit var idleness:IdlenessDetection
+class ScreenTimeService:Service(){
     private lateinit var screenTime:ScreenTimeDetection
+    private val SHARED_PREFERENCES = "HEALTH_TRACKER_PREFERENCES"
+
     override fun onBind(intent: Intent?): IBinder? {
         return null
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        idleness = IdlenessDetection()
-        idleness.checkIdealTime(this)
 
         screenTime = ScreenTimeDetection()
         screenTime.startScreenTimer(this)
@@ -34,16 +32,19 @@ class TrackerService:Service(), SensorEventListener{
         return START_NOT_STICKY
     }
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-    }
-
-    override fun onSensorChanged(event: SensorEvent?) {
-        //To change body of created functions use File | Settings | File Templates.
-    }
-
     override fun onDestroy() {
-        idleness.onDestroy(this)
-        screenTime.onDestroy(this)
+        Log.i("ON_DESTROY", "onDestroy got called")
+        var sharedPreferences = getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE)
+        if(sharedPreferences.contains("ACTIVITY_SCREEN_TIME")) {
+            val screenTimeStatus = sharedPreferences.getBoolean("ACTIVITY_SCREEN_TIME", false)
+            Log.i("ON_DESTROY", screenTimeStatus.toString())
+            if(!screenTimeStatus) {
+                screenTime.onDestroy(this)
+                var editor = sharedPreferences.edit()
+                editor.remove("ACTIVITY_SCREEN_TIME")
+                editor.commit()
+            }
+        }
         super.onDestroy()
     }
 }
