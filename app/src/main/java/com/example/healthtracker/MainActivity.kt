@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
             // start the background service
             if(idlenessStatus) {
-                imgBtnIdleness.setImageResource(R.drawable.pause)
+                imgBtnIdleness.setImageResource(R.drawable.stop)
                 txtViewIdleness.text = getString(R.string.STOP_IDLE_BUTTON)
                 Toast.makeText(this, "Idleness tracking activated!", Toast.LENGTH_SHORT).show()
                 val serviceIntent = Intent(this,IdlenessService::class.java)
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
             // start the background service
             if(screenTimeStatus) {
-                imgBtnScreenTime.setImageResource(R.drawable.pause)
+                imgBtnScreenTime.setImageResource(R.drawable.stop)
                 txtViewScreenTime.text = getString(R.string.STOP_SCREEN_BUTTON)
                 Toast.makeText(this, "Screen time tracking activated!", Toast.LENGTH_SHORT).show()
                 val serviceIntent = Intent(this,ScreenTimeService::class.java)
