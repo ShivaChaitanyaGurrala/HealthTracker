@@ -5,7 +5,6 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.os.IBinder
-import android.util.Log
 import androidx.core.app.NotificationCompat
 
 class IdlenessService:Service(){
@@ -33,11 +32,9 @@ class IdlenessService:Service(){
     }
 
     override fun onDestroy() {
-        Log.i("ON_DESTROY", "onDestroy got called")
         var sharedPreferences = getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE)
         if(sharedPreferences.contains("ACTIVITY_IDLENESS")) {
             val idlenessStatus = sharedPreferences.getBoolean("ACTIVITY_IDLENESS", false)
-            Log.i("ON_DESTROY", idlenessStatus.toString())
             if(!idlenessStatus) {
                 idleness.onDestroy(this)
                 var editor = sharedPreferences.edit()

@@ -5,7 +5,6 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.os.IBinder
-import android.util.Log
 import androidx.core.app.NotificationCompat
 
 class ScreenTimeService:Service(){
@@ -33,11 +32,9 @@ class ScreenTimeService:Service(){
     }
 
     override fun onDestroy() {
-        Log.i("ON_DESTROY", "onDestroy got called")
         var sharedPreferences = getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE)
         if(sharedPreferences.contains("ACTIVITY_SCREEN_TIME")) {
             val screenTimeStatus = sharedPreferences.getBoolean("ACTIVITY_SCREEN_TIME", false)
-            Log.i("ON_DESTROY", screenTimeStatus.toString())
             if(!screenTimeStatus) {
                 screenTime.onDestroy(this)
                 var editor = sharedPreferences.edit()
